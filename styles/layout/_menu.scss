@@ -1,4 +1,6 @@
 .layout-sidebar {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     width: 280px;
     height: calc(100vh - 9rem);
@@ -156,4 +158,29 @@
     overflow: hidden;
     max-height: 0 !important;
     transition: max-height 0.45s cubic-bezier(0, 1, 0, 1);
+}
+
+.menu-bottom {
+    margin-top: auto; /* Pushes this section to the bottom */
+    padding: 1rem;
+    text-align: center;
+    background: var(--surface-100);
+    border-top: 1px solid var(--surface-border);
+}
+
+.logout-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    font-weight: bold;
+    background: none;
+    border: none;
+    width: 100%;
+}
+
+.logout-button:hover {
+    background: var(--surface-hover);
+    border-radius: 4px;
 }

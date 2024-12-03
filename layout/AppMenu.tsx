@@ -7,9 +7,12 @@ import { MenuProvider } from './context/menucontext';
 import Link from 'next/link';
 import { AppMenuItem } from '@/types';
 import { InputText } from 'primereact/inputtext';
+import { useRouter } from 'next/navigation';
+
 
 const AppMenu = () => {
     const { layoutConfig } = useContext(LayoutContext);
+    const router=useRouter()
 
     const model: AppMenuItem[] = [
         {
@@ -87,6 +90,10 @@ const AppMenu = () => {
         },
     ];
 
+    const logout=()=>{
+        router.push('/auth/login')
+    }
+
 
     return (
         <MenuProvider>
@@ -100,9 +107,14 @@ const AppMenu = () => {
                 {model.map((item, i) => {
                     return !item?.seperator ? <AppMenuitem item={item} root={true} index={i} key={item.label} /> : <li className="menu-separator"></li>;
                 })}
-
-
             </ul>
+            {/* Logout Button at the Bottom */}
+            <div className="menu-bottom">
+                <button className="p-link layout-menu-button logout-button" onClick={logout}>
+                    <i className="pi pi-sign-out"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
         </MenuProvider>
     );
 };
