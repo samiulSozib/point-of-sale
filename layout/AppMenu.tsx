@@ -77,14 +77,50 @@ const AppMenu = () => {
                     to: '/pages/sales',
                 },
                 {
+                    label: 'Supplier',
+                    icon: 'pi pi-fw pi-map-marker', // Map or location marker for warehouses
+                    to: '/pages/warehouse',
+                },
+                {
                     label: 'Roles/Permissions',
                     icon: 'pi pi-fw pi-lock', // Lock for security or permissions
                     to: '/pages/role-permissions',
                 },
+                // {
+                //     label: 'Warehouse',
+                //     icon: 'pi pi-fw pi-map-marker', // Map or location marker for warehouses
+                //     to: '/pages/warehouse',
+                // },
                 {
-                    label: 'Warehouse',
+                    label: 'Location',
                     icon: 'pi pi-fw pi-map-marker', // Map or location marker for warehouses
+                    to:'/pages/location'
+                },
+                {
+                    label: 'Language',
+                    icon: 'pi pi-fw pi-globe',
                     to: '/pages/warehouse',
+                },
+                {
+                    label: 'People',
+                    icon: 'pi pi-user',
+                    items: [
+                        {
+                            label: 'Supplier',
+                            icon: 'pi pi-fw pi-sliders-h', // Units or measurements icon
+                            to: '/pages/units',
+                        },
+                        {
+                            label: 'Customer',
+                            icon: 'pi pi-fw pi-sliders-h', // Layers for base units
+                            to: '/pages/base-units',
+                        },
+                        {
+                            label: 'Users',
+                            icon: 'pi pi-fw pi-sliders-h', // Layers for base units
+                            to: '/pages/base-units',
+                        },
+                    ],
                 },
             ],
         },
