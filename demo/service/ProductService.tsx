@@ -13,6 +13,12 @@ export const ProductService = {
             .then((d) => d.data as Demo.Product[]);
     },
 
+    getProducts1() {
+        return fetch('/demo/data/product.json', { headers: { 'Cache-Control': 'no-cache' } })
+            .then((res) => res.json())
+            .then((d) => d.data as Demo.Product[]);
+    },
+
     getProductsWithOrdersSmall() {
         return fetch('/demo/data/products-orders-small.json', { headers: { 'Cache-Control': 'no-cache' } })
             .then((res) => res.json())
