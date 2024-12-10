@@ -84,7 +84,7 @@ const AppMenu = () => {
                 {
                     label: 'Roles/Permissions',
                     icon: 'pi pi-fw pi-lock', // Lock for security or permissions
-                    to: '/pages/role-permissions',
+                    to: '/pages/roles-permissions',
                 },
                 // {
                 //     label: 'Warehouse',
@@ -99,7 +99,7 @@ const AppMenu = () => {
                 {
                     label: 'Language',
                     icon: 'pi pi-fw pi-globe',
-                    to: '/pages/warehouse',
+                    to: '/pages/languages',
                 },
                 {
                     label: 'People',
