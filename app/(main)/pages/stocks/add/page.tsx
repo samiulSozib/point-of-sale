@@ -430,7 +430,7 @@ const addForm = () => {
               <div className="card">
                 <div className="p-fluid formgrid grid">
                   {/* Memory */}
-                  <div className="field col-12 md:col-2">
+                  <div className="field col-12 md:col-3">
                     <label htmlFor={`memory-${form.id}`}>Memory</label>
                     <InputText
                       id={`memory-${form.id}`}
@@ -441,7 +441,7 @@ const addForm = () => {
                     />
                   </div>
                   {/* Ram */}
-                  <div className="field col-12 md:col-2">
+                  <div className="field col-12 md:col-3">
                     <label htmlFor={`ram-${form.id}`}>Ram</label>
                     <InputText
                       id={`ram-${form.id}`}
@@ -452,22 +452,28 @@ const addForm = () => {
                     />
                   </div>
                   {/* Supplier */}
-                  <div className="field col-12 md:col-2">
+                  <div className="field col-12 md:col-3">
                     <label htmlFor={`supplier-${form.id}`}>Supplier</label>
-                    <Dropdown
-                      id={`supplier-${form.id}`}
-                      value={form.supplier}
-                      onChange={(e: DropdownChangeEvent) =>
-                        handleInputChange(form.id, "supplier", e.value)
-                      }
-                      options={categoryItems}
-                      optionLabel="name"
-                      placeholder="Select One"
-                    />
+                    <div className="flex align-items-center">
+                        <Dropdown
+                        id={`supplier-${form.id}`}
+                        value={form.supplier}
+                        onChange={(e: DropdownChangeEvent) =>
+                            handleInputChange(form.id, "supplier", e.value)
+                        }
+                        options={categoryItems}
+                        optionLabel="name"
+                        placeholder="Select One"
+                        className="flex-grow-1"
+                        />
+                        <Button style={{ width: '3rem', height: '3rem', marginLeft:"5px" }} icon="pi pi-plus" severity="success" aria-label="Search" />
+
+                    </div>
                   </div>
                   {/* Currency */}
-                  <div className="field col-12 md:col-2">
+                  <div className="field col-12 md:col-3">
                     <label htmlFor={`currency-${form.id}`}>Currency</label>
+                    <div className="flex align-items-center">
                     <Dropdown
                       id={`currency-${form.id}`}
                       value={form.currency}
@@ -477,10 +483,14 @@ const addForm = () => {
                       options={categoryItems}
                       optionLabel="name"
                       placeholder="Select One"
-                    />
+                      className="flex-grow-1"
+                      />
+                      <Button style={{ width: '3rem', height: '3rem', marginLeft:"5px" }} icon="pi pi-plus" severity="success" aria-label="Search" />
+
+                  </div>
                   </div>
                   {/* Cost */}
-                  <div className="field col-12 md:col-2">
+                  <div className="field col-12 md:col-3">
                     <label htmlFor={`cost-${form.id}`}>Cost</label>
                     <InputText
                       id={`cost-${form.id}`}
@@ -493,7 +503,7 @@ const addForm = () => {
                   </div>
 
                   {/* Stock */}
-                  <div className="field col-12 md:col-2">
+                  <div className="field col-12 md:col-3">
                     <label htmlFor={`stock-${form.id}`}>Stock</label>
                     <InputText
                       id={`stock-${form.id}`}
@@ -506,7 +516,7 @@ const addForm = () => {
                   </div>
 
                   {/* Stock alert */}
-                  <div className="field col-12 md:col-2">
+                  <div className="field col-12 md:col-3">
                     <label htmlFor={`stock_alert-${form.id}`}>Stock Alert</label>
                     <InputText
                       id={`stock_alert-${form.id}`}
@@ -519,7 +529,7 @@ const addForm = () => {
                   </div>
 
                   {/* Quantity */}
-                  <div className="field col-12 md:col-2">
+                  <div className="field col-12 md:col-3">
                     <label htmlFor={`quantity-${form.id}`}>Quantity</label>
                     <InputText
                       id={`quantity-${form.id}`}
@@ -532,7 +542,7 @@ const addForm = () => {
                   </div>
 
                   {/* Order tax */}
-                  <div className="field col-12 md:col-2">
+                  <div className="field col-12 md:col-3">
                     <label htmlFor={`order_tax-${form.id}`}>Order Tax</label>
                     <InputText
                       id={`order_tax-${form.id}`}
@@ -545,8 +555,9 @@ const addForm = () => {
                   </div>
 
                   {/* Tax type */}
-                  <div className="field col-12 md:col-2">
+                  <div className="field col-12 md:col-3">
                     <label htmlFor={`tax_type-${form.id}`}>Tax Type</label>
+                    <div className="flex align-items-center">
                     <Dropdown
                       id={`tax_type-${form.id}`}
                       value={form.tax_type}
@@ -556,11 +567,16 @@ const addForm = () => {
                       options={categoryItems}
                       optionLabel="name"
                       placeholder="Select One"
-                    />
+                      className="flex-grow-1"
+                      />
+                      <Button style={{ width: '3rem', height: '3rem', marginLeft:"5px" }} icon="pi pi-plus" severity="success" aria-label="Search" />
+
+                  </div>
                   </div>
                     {/* Location */}
-                    <div className="field col-12 md:col-2">
+                    <div className="field col-12 md:col-3">
                         <label htmlFor={`location-${form.id}`}>Location</label>
+                        <div className="flex align-items-center">
                         <Dropdown
                         id={`location-${form.id}`}
                         value={form.location}
@@ -570,12 +586,17 @@ const addForm = () => {
                         options={categoryItems}
                         optionLabel="name"
                         placeholder="Select One"
+                        className="flex-grow-1"
                         />
+                        <Button style={{ width: '3rem', height: '3rem', marginLeft:"5px" }} icon="pi pi-plus" severity="success" aria-label="Search" />
+
+                    </div>
                   </div>
 
                   {/* Location1 */}
-                  <div className="field col-12 md:col-2">
+                  <div className="field col-12 md:col-3">
                     <label htmlFor={`location2-${form.id}`}>Location 2</label>
+                    <div className="flex align-items-center">
                     <Dropdown
                     id={`location2-${form.id}`}
                     value={form.location2}
@@ -585,12 +606,17 @@ const addForm = () => {
                     options={categoryItems}
                     optionLabel="name"
                     placeholder="Select One"
+                    className="flex-grow-1"
                     />
+                    <Button style={{ width: '3rem', height: '3rem', marginLeft:"5px" }} icon="pi pi-plus" severity="success" aria-label="Search" />
+
+                </div>
                   </div>
 
                   {/* Partition */}
-                  <div className="field col-12 md:col-2">
+                  <div className="field col-12 md:col-3">
                     <label htmlFor={`partition-${form.id}`}>Partition</label>
+                    <div className="flex align-items-center">
                     <Dropdown
                     id={`Partition-${form.id}`}
                     value={form.partition}
@@ -600,11 +626,15 @@ const addForm = () => {
                     options={categoryItems}
                     optionLabel="name"
                     placeholder="Select One"
-                    />
+                    className="flex-grow-1"
+                        />
+                        <Button style={{ width: '3rem', height: '3rem', marginLeft:"5px" }} icon="pi pi-plus" severity="success" aria-label="Search" />
+
+                    </div>
                   </div>
 
                   {/* Partition */}
-                  <div className="field col-12 md:col-2">
+                  <div className="field col-12 md:col-3">
                     <label htmlFor={`date-${form.id}`}>Date</label>
                     <Calendar value={date}  dateFormat="dd/mm/yy" />
 

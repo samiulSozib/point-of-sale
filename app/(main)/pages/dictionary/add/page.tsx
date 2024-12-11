@@ -19,6 +19,9 @@ import { Demo } from '@/types';
 import { useRouter } from 'next/navigation';
 import { Dropdown, DropdownChangeEvent } from 'primereact/dropdown';
 import { MultiSelect } from 'primereact/multiselect';
+import BaseUnitDialog from '@/demo/components/BaseUnitDialog';
+import AddBrandDialog from '@/demo/components/AddBrandDialog';
+import AddVariationDialog from '@/demo/components/AddVariationDialog';
 
 /* @todo Used 'as any' for types here. Will fix in next version due to onSelectionChange event type issue. */
 interface DropdownItem {
@@ -75,6 +78,8 @@ const Crud = () => {
 
     const [products, setProducts] = useState(null);
     const [productDialog, setProductDialog] = useState(false);
+    const [brandDialog,setBrandDialog]=useState(false)
+    const [variationDialog,setVariationDialog]=useState(false)
     const [deleteProductDialog, setDeleteProductDialog] = useState(false);
     const [deleteProductsDialog, setDeleteProductsDialog] = useState(false);
     const [product, setProduct] = useState<Demo.Product>(emptyProduct);
@@ -304,6 +309,30 @@ const addForm = () => {
     );
   };
 
+  const handleAddBaseUnit=()=>{
+    setProductDialog(true);
+  }
+
+  const handleBrandDialog=()=>{
+    setBrandDialog(true)
+  }
+
+  const handleVariationDialog=()=>{
+    setVariationDialog(true)
+  }
+  const hideVariationDialog=()=>{
+    setVariationDialog(false)
+  }
+
+  const hideBaseUnitDialog = () => {
+    setSubmitted(false);
+    setProductDialog(false);
+};
+
+const hideBrandDialog=()=>{
+    setBrandDialog(false)
+}
+
 
     return (
         <div className="grid crud-demo">
@@ -329,6 +358,7 @@ const addForm = () => {
                   {/* Category */}
                   <div className="field col-12 md:col-4">
                     <label htmlFor={`category-${form.id}`}>Category</label>
+                    <div className="flex align-items-center">
                     <Dropdown
                       id={`category-${form.id}`}
                       value={form.category}
@@ -338,51 +368,70 @@ const addForm = () => {
                       options={categoryItems}
                       optionLabel="name"
                       placeholder="Select One"
+                      className="flex-grow-1"
                     />
+                    <Button onClick={handleAddBaseUnit} style={{ width: '3rem', height: '3rem', marginLeft:"5px" }} icon="pi pi-plus" severity="success" aria-label="Search" />
+
+                    </div>
                   </div>
                   {/* Brand */}
                   <div className="field col-12 md:col-4">
                     <label htmlFor={`brand-${form.id}`}>Brand</label>
-                    <Dropdown
-                      id={`brand-${form.id}`}
-                      value={form.brand}
-                      onChange={(e: DropdownChangeEvent) =>
-                        handleInputChange(form.id, "brand", e.value)
-                      }
-                      options={brandItems}
-                      optionLabel="name"
-                      placeholder="Select One"
-                    />
+                    <div className="flex align-items-center">
+                        <Dropdown
+                        id={`brand-${form.id}`}
+                        value={form.brand}
+                        onChange={(e: DropdownChangeEvent) =>
+                            handleInputChange(form.id, "brand", e.value)
+                        }
+                        options={brandItems}
+                        optionLabel="name"
+                        placeholder="Select One"
+                        className="flex-grow-1"
+                        />
+                        <Button onClick={handleBrandDialog} style={{ width: '3rem', height: '3rem', marginLeft:"5px" }} icon="pi pi-plus" severity="success" aria-label="Search" />
+                        <AddBrandDialog visible={brandDialog} onHide={hideBrandDialog} />
+                    </div>
                   </div>
                   {/* Base Unit */}
                   <div className="field col-12 md:col-4">
                     <label htmlFor={`base_unit-${form.id}`}>Base Unit</label>
-                    <Dropdown
-                      id={`base_unit-${form.id}`}
-                      value={form.baseUnit}
-                      onChange={(e: DropdownChangeEvent) =>
-                        handleInputChange(form.id, "baseUnit", e.value)
-                      }
-                      options={baseUnitItems}
-                      optionLabel="name"
-                      placeholder="Select One"
-                    />
-                  </div>
+                    <div className="flex align-items-center">
+                        <Dropdown
+                            id={`base_unit-${form.id}`}
+                            value={form.baseUnit}
+                            onChange={(e: DropdownChangeEvent) =>
+                                handleInputChange(form.id, "baseUnit", e.value)
+                            }
+                            options={baseUnitItems}
+                            optionLabel="name"
+                            placeholder="Select One"
+                            className="flex-grow-1" // Allows Dropdown to take maximum space
+                        />
+                        <Button onClick={handleAddBaseUnit} style={{ width: '3rem', height: '3rem', marginLeft:"5px" }} icon="pi pi-plus" severity="success" aria-label="Search" />
+                        <BaseUnitDialog visible={productDialog} onHide={hideBaseUnitDialog} />
+                    </div>
+                </div>
                   {/* Variation */}
                   <div className="field col-12 md:col-4">
                     <label htmlFor={`variation-${form.id}`}>Variation</label>
-                    <MultiSelect
-                      id={`variation-${form.id}`}
-                      value={form.variations}
-                      onChange={(e: DropdownChangeEvent) =>
-                        handleInputChange(form.id, "variations", e.value)
-                      }
-                      options={variationItems}
-                      optionLabel="name"
-                      display="chip"
-                      placeholder="Select Variation"
-                      maxSelectedLabels={3}
-                    />
+                    <div className="flex align-items-center">
+                        <MultiSelect
+                        id={`variation-${form.id}`}
+                        value={form.variations}
+                        onChange={(e: DropdownChangeEvent) =>
+                            handleInputChange(form.id, "variations", e.value)
+                        }
+                        options={variationItems}
+                        optionLabel="name"
+                        display="chip"
+                        placeholder="Select Variation"
+                        maxSelectedLabels={3}
+                        className="flex-grow-1"
+                        />
+                        <Button onClick={handleVariationDialog} style={{ width: '3rem', height: '3rem', marginLeft:"5px" }} icon="pi pi-plus" severity="success" aria-label="Search" />
+                        <AddVariationDialog visible={variationDialog} onHide={hideVariationDialog} />
+                    </div>
                   </div>
                   <div className="field col-12 md:col-4">
                         <label htmlFor="image">Image</label>

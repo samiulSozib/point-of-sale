@@ -149,7 +149,7 @@ const Dashboard = () => {
                             <div className="text-900 font-medium text-xl">$2.100</div>
                         </div>
                         <div className="flex align-items-center justify-content-center bg-orange-100 border-round" style={{ width: '2.5rem', height: '2.5rem' }}>
-                            <i className="pi pi-map-marker text-orange-500 text-xl" />
+                            <i className="pi pi-dollar text-orange-500 text-xl" />
                         </div>
                     </div>
                     <span className="text-green-500 font-medium">%52+ </span>
@@ -164,7 +164,7 @@ const Dashboard = () => {
                             <div className="text-900 font-medium text-xl">28441</div>
                         </div>
                         <div className="flex align-items-center justify-content-center bg-cyan-100 border-round" style={{ width: '2.5rem', height: '2.5rem' }}>
-                            <i className="pi pi-inbox text-cyan-500 text-xl" />
+                            <i className="pi pi-users text-cyan-500 text-xl" />
                         </div>
                     </div>
                     <span className="text-green-500 font-medium">520 </span>
@@ -368,7 +368,7 @@ const Dashboard = () => {
                         </li>
                     </ul>
                 </div>
-                <div
+                {/* <div
                     className="px-4 py-5 shadow-2 flex flex-column md:flex-row md:align-items-center justify-content-between mb-3"
                     style={{
                         borderRadius: '1rem',
@@ -384,7 +384,7 @@ const Dashboard = () => {
                             Get Started
                         </Link>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

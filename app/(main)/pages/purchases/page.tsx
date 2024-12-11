@@ -298,9 +298,9 @@ const Crud = () => {
     const actionBodyTemplate = (rowData: Demo.Product) => {
         return (
             <>
-                <Button icon="pi pi-pencil" rounded severity="success" className="mr-2" onClick={() => editProduct(rowData)} />
-                <Button icon="pi pi-eye" rounded severity="success" className="mr-2" onClick={() => editProduct(rowData)} />
-                <Button icon="pi pi-trash" rounded severity="warning" onClick={() => confirmDeleteProduct(rowData)} />
+                <Button title="Edit Purchase" icon="pi pi-pencil" rounded severity="success" className="mr-2" onClick={() => editProduct(rowData)} />
+                <Button title="View Purchase" icon="pi pi-eye" rounded severity="success" className="mr-2" onClick={() => editProduct(rowData)} />
+                <Button title="Delete Purchase" icon="pi pi-trash" rounded severity="warning" onClick={() => confirmDeleteProduct(rowData)} />
             </>
         );
     };

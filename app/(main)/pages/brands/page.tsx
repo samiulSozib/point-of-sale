@@ -16,6 +16,7 @@ import { classNames } from 'primereact/utils';
 import React, { useEffect, useRef, useState } from 'react';
 import { ProductService } from '../../../../demo/service/ProductService';
 import { Demo } from '@/types';
+import AddBrandDialog from '@/demo/components/AddBrandDialog';
 
 /* @todo Used 'as any' for types here. Will fix in next version due to onSelectionChange event type issue. */
 const Crud = () => {
@@ -240,47 +241,11 @@ const Crud = () => {
         );
     };
 
-    // const priceBodyTemplate = (rowData: Demo.Product) => {
-    //     return (
-    //         <>
-    //             <span className="p-column-title">Price</span>
-    //             {formatCurrency(rowData.price as number)}
-    //         </>
-    //     );
-    // };
-
-    // const categoryBodyTemplate = (rowData: Demo.Product) => {
-    //     return (
-    //         <>
-    //             <span className="p-column-title">Category</span>
-    //             {rowData.category}
-    //         </>
-    //     );
-    // };
-
-    // const ratingBodyTemplate = (rowData: Demo.Product) => {
-    //     return (
-    //         <>
-    //             <span className="p-column-title">Reviews</span>
-    //             <Rating value={rowData.rating} readOnly cancel={false} />
-    //         </>
-    //     );
-    // };
-
-    // const statusBodyTemplate = (rowData: Demo.Product) => {
-    //     return (
-    //         <>
-    //             <span className="p-column-title">Status</span>
-    //             <span className={`product-badge status-${rowData.inventoryStatus?.toLowerCase()}`}>{rowData.inventoryStatus}</span>
-    //         </>
-    //     );
-    // };
-
     const actionBodyTemplate = (rowData: Demo.Product) => {
         return (
             <>
-                <Button icon="pi pi-pencil" rounded severity="success" className="mr-5" onClick={() => editProduct(rowData)} />
-                <Button icon="pi pi-trash" rounded severity="warning" onClick={() => confirmDeleteProduct(rowData)} />
+                <Button title="Edit Brands" icon="pi pi-pencil" rounded severity="success" className="mr-5" onClick={() => editProduct(rowData)} />
+                <Button title="Delete Brands" icon="pi pi-trash" rounded severity="warning" onClick={() => confirmDeleteProduct(rowData)} />
             </>
         );
     };
@@ -360,7 +325,7 @@ const Crud = () => {
                         <Column body={actionBodyTemplate} headerStyle={{ minWidth: '10rem' }}></Column>
                     </DataTable>
 
-                    <Dialog visible={productDialog} style={{ width: '450px' }} header="Brand Details" modal className="p-fluid" footer={productDialogFooter} onHide={hideDialog}>
+                    {/* <Dialog visible={productDialog} style={{ width: '450px' }} header="Brand Details" modal className="p-fluid" footer={productDialogFooter} onHide={hideDialog}>
                         {product.image && <img src={`/demo/images/product/${product.image}`} alt={product.image} width="150" className="mt-0 mx-auto mb-5 block shadow-2" />}
                         <div className="field">
                             <label htmlFor="name">Name</label>
@@ -377,44 +342,10 @@ const Crud = () => {
                             {submitted && !product.name && <small className="p-invalid">Name is required.</small>}
                         </div>
                         <FileUpload name="demo[]" url="/api/upload" accept="image/*" maxFileSize={1000000} />
-                        {/* <div className="field">
-                            <label htmlFor="description">Description</label>
-                            <InputTextarea id="description" value={product.description} onChange={(e) => onInputChange(e, 'description')} required rows={3} cols={20} />
-                        </div>
 
-                        <div className="field">
-                            <label className="mb-3">Category</label>
-                            <div className="formgrid grid">
-                                <div className="field-radiobutton col-6">
-                                    <RadioButton inputId="category1" name="category" value="Accessories" onChange={onCategoryChange} checked={product.category === 'Accessories'} />
-                                    <label htmlFor="category1">Accessories</label>
-                                </div>
-                                <div className="field-radiobutton col-6">
-                                    <RadioButton inputId="category2" name="category" value="Clothing" onChange={onCategoryChange} checked={product.category === 'Clothing'} />
-                                    <label htmlFor="category2">Clothing</label>
-                                </div>
-                                <div className="field-radiobutton col-6">
-                                    <RadioButton inputId="category3" name="category" value="Electronics" onChange={onCategoryChange} checked={product.category === 'Electronics'} />
-                                    <label htmlFor="category3">Electronics</label>
-                                </div>
-                                <div className="field-radiobutton col-6">
-                                    <RadioButton inputId="category4" name="category" value="Fitness" onChange={onCategoryChange} checked={product.category === 'Fitness'} />
-                                    <label htmlFor="category4">Fitness</label>
-                                </div>
-                            </div>
-                        </div>
+                    </Dialog> */}
 
-                        <div className="formgrid grid">
-                            <div className="field col">
-                                <label htmlFor="price">Price</label>
-                                <InputNumber id="price" value={product.price} onValueChange={(e) => onInputNumberChange(e, 'price')} mode="currency" currency="USD" locale="en-US" />
-                            </div>
-                            <div className="field col">
-                                <label htmlFor="quantity">Quantity</label>
-                                <InputNumber id="quantity" value={product.quantity} onValueChange={(e) => onInputNumberChange(e, 'quantity')} />
-                            </div>
-                        </div> */}
-                    </Dialog>
+                    <AddBrandDialog visible={productDialog} onHide={hideDialog} />
 
                     <Dialog visible={deleteProductDialog} style={{ width: '450px' }} header="Confirm" modal footer={deleteProductDialogFooter} onHide={hideDeleteProductDialog}>
                         <div className="flex align-items-center justify-content-center">

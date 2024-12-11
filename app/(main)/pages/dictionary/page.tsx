@@ -303,8 +303,8 @@ const Crud = () => {
     const actionBodyTemplate = (rowData: Demo.Product) => {
         return (
             <>
-                <Button icon="pi pi-pencil" rounded severity="success" className="mr-3" onClick={() => editProduct(rowData)} />
-                <Button icon="pi pi-trash" rounded severity="warning" className="mr-3" onClick={() => confirmDeleteProduct(rowData)} />
+                <Button title="Edit Dictionary" icon="pi pi-pencil" rounded severity="success" className="mr-3" onClick={() => editProduct(rowData)} />
+                <Button title="Delete Dictionary" icon="pi pi-trash" rounded severity="warning" className="mr-3" onClick={() => confirmDeleteProduct(rowData)} />
                 <Menu ref={menu} model={overlayMenuItems} popup />
                 <Button rounded icon="pi pi-ellipsis-v" onClick={toggleMenu}  />
 
