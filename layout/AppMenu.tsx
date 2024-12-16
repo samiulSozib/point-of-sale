@@ -76,11 +76,11 @@ const AppMenu = () => {
                     icon: 'pi pi-fw pi-chart-line', // Line chart for sales
                     to: '/pages/sales',
                 },
-                {
-                    label: 'Supplier',
-                    icon: 'pi pi-fw pi-map-marker', // Map or location marker for warehouses
-                    to: '/pages/warehouse',
-                },
+                // {
+                //     label: 'Supplier',
+                //     icon: 'pi pi-fw pi-map-marker', // Map or location marker for warehouses
+                //     to: '/pages/warehouse',
+                // },
                 {
                     label: 'Roles/Permissions',
                     icon: 'pi pi-fw pi-lock', // Lock for security or permissions
@@ -106,22 +106,37 @@ const AppMenu = () => {
                     icon: 'pi pi-user',
                     items: [
                         {
-                            label: 'Supplier',
-                            icon: 'pi pi-fw pi-sliders-h', // Units or measurements icon
-                            to: '/pages/units',
+                            label: 'Suppliers',
+                            icon: 'pi pi-shopping-bag', // Units or measurements icon
+                            to: '/pages/suppliers',
                         },
                         {
-                            label: 'Customer',
-                            icon: 'pi pi-fw pi-sliders-h', // Layers for base units
-                            to: '/pages/base-units',
+                            label: 'Customers',
+                            icon: 'pi pi-users', // Layers for base units
+                            to: '/pages/customers',
                         },
                         {
                             label: 'Users',
-                            icon: 'pi pi-fw pi-sliders-h', // Layers for base units
-                            to: '/pages/base-units',
+                            icon: 'pi pi-user', // Layers for base units
+                            to: '/pages/users',
                         },
                     ],
                 },
+                {
+                    label: 'Reports',
+                    icon: 'pi pi-chart-bar',
+                    to: '/pages/reports',
+                },
+                {
+                    label: 'Currencies',
+                    icon: 'pi pi-dollar',
+                    to: '/pages/currencies',
+                },
+                {
+                    label: 'Settings',
+                    icon: 'pi pi-cog',
+                    to: '/pages/settings',
+                }
             ],
         },
     ];
