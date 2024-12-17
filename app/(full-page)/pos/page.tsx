@@ -282,7 +282,7 @@ const Crud = () => {
                         onChange={(e) => setSelectedOption(e.value)}
                         placeholder="Location"
                         className="p-dropdown-sm"
-                        style={{ minWidth: '120px' }}
+                        style={{ minWidth: '180px' }}
                     />
                 </div>
             </React.Fragment>
@@ -550,7 +550,7 @@ const Crud = () => {
                     <Toast ref={toast} />
                     <div className='flex'>
                         <div
-                            className="card col-4"
+                            className="card col-5"
                             style={{
                                 height: "100vh", // Occupy the full viewport height
                                 overflow: "hidden", // Prevent scrolling
@@ -703,7 +703,7 @@ const Crud = () => {
 
 
 
-                        <div className=' card col-8' style={{
+                        <div className=' card col-7' style={{
                             overflowY: "auto", // Enable vertical scrolling
                             maxHeight: "100vh", // Limit height to viewport
                         }}>
